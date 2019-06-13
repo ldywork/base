@@ -83,6 +83,12 @@ public class ReadFiles {
 			if (f.isDirectory()){
 				readFile(f, extnames);
 			}else if (f.isFile()){
+				String ab = newfilepath+f.getAbsolutePath().substring(path.length());
+	            File file4 = new File(ab);
+	            if(file4.exists()){
+	            	System.out.println("文件已经存在");
+	            	continue;
+	            }
 				String name = f.getName();
 				String[] names = name.split("\\.");
 				//过滤隐藏文件
